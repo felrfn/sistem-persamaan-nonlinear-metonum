@@ -4,7 +4,6 @@ from equations import f1, f2
 
 
 def approximate_jacobian(x, y, h=1e-6):
-    """Menghitung aproksimasi Jacobian menggunakan beda hingga."""
     J_approx = np.zeros((2, 2))
 
     f_val_plus_h_x = np.array([f1(x + h, y), f2(x + h, y)])
@@ -19,7 +18,6 @@ def approximate_jacobian(x, y, h=1e-6):
 
 
 def run_secant_quasi_newton(x0, y0, tol, max_iter):
-    """Metode Secant (Quasi-Newton) menggunakan aproksimasi Jacobian."""
     print("\n--- Menjalankan Metode Secant (Quasi-Newton) ---")
     xk = np.array([x0, y0], dtype=float)
 

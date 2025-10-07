@@ -4,7 +4,6 @@ from solvers.newton_raphson import run_newton_raphson
 from solvers.secant_quasi_newton import run_secant_quasi_newton
 from solvers.seidel import run_seidel
 
-# --- Konfigurasi Awal ---
 X0 = 1.5
 Y0 = 3.5
 EPSILON = 0.000001
@@ -12,14 +11,12 @@ MAX_ITER = 100
 
 
 def main():
-    """Fungsi utama untuk menjalankan semua solver dan menampilkan hasil."""
     results = {}
     results["jacobi"] = run_jacobi(X0, Y0, EPSILON, MAX_ITER)
     results["seidel"] = run_seidel(X0, Y0, EPSILON, MAX_ITER)
     results["newton"] = run_newton_raphson(X0, Y0, EPSILON, MAX_ITER)
     results["secant"] = run_secant_quasi_newton(X0, Y0, EPSILON, MAX_ITER)
 
-    # --- Tampilkan Ringkasan Hasil ---
     print("\n\n" + "=" * 40)
     print("           RINGKASAN HASIL")
     print("=" * 40)

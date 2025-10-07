@@ -4,7 +4,6 @@ from equations import f1, f2, jacobian
 
 
 def run_newton_raphson(x0, y0, tol, max_iter):
-    """Metode Newton-Raphson untuk sistem persamaan non-linear."""
     print("\n--- Menjalankan Metode Newton-Raphson ---")
     xk = np.array([x0, y0], dtype=float)
 

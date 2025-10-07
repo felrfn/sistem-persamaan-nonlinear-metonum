@@ -4,12 +4,15 @@ from equations import g1B, g2B
 
 
 def run_jacobi(x0, y0, tol, max_iter):
-    """Metode Iterasi Jacobi."""
     print("--- Menjalankan Metode Jacobi ---")
     x_k, y_k = x0, y0
     for i in range(max_iter):
-        x_k_plus_1 = g1B(y_k)
-        y_k_plus_1 = g2B(x_k)
+        x_k_plus_1 = g1B(x_k, y_k)
+        y_k_plus_1 = g2B(x_k, y_k)
+
+        if np.isnan(x_k_plus_1) or np.isnan(y_k_plus_1):
+            print("Error: Hasil perhitungan NaN (Not a Number). Iterasi dihentikan.")
+            return None, None, i + 1
 
         error = np.sqrt((x_k_plus_1 - x_k) ** 2 + (y_k_plus_1 - y_k) ** 2)
         print(
